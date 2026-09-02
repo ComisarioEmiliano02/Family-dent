@@ -128,7 +128,7 @@
             <a href="#" class="flex items-center gap-3 group">
                 <!-- Imagen del Logo (Coloca tu archivo en assets/images/logo.png) -->
                 <img src="assets/images/logo.png" alt="Family Dent" class="h-10 w-auto object-contain hidden"
-                     onload="this.classList.remove('hidden'); const fallback = this.nextElementSibling; if(fallback) fallback.classList.add('hidden');"
+                     onload="this.classList.remove('hidden'); if (this.nextElementSibling) this.nextElementSibling.classList.add('hidden');"
                      onerror="this.classList.add('hidden');" />
                 
                 <!-- Icono de respaldo si no hay imagen de logo aún -->
@@ -237,317 +237,208 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="servicesGrid">
 
                         <!-- Servicio 1: Extracciones dentales -->
-                        <div class="service-card group relative bg-surface p-8 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer h-full flex flex-col justify-between"
-                             onclick="toggleServiceDetail('desc-1')">
+                        <div class="service-card group relative bg-surface p-7 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer flex flex-col justify-between"
+                             onclick="openServiceModal('desc-1')">
                             <div>
-                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary-fixed transition-colors">
-                                    <span class="material-symbols-outlined text-teal-muted text-[28px]">medical_services</span>
+                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-5 group-hover:bg-teal-muted group-hover:text-on-primary transition-all text-teal-muted">
+                                    <span class="material-symbols-outlined text-[28px]">medical_services</span>
                                 </div>
-                                <h3 class="font-headline-md text-headline-md text-primary mb-3 text-[22px]">Extracciones dentales</h3>
+                                <h3 class="font-headline-md text-headline-md text-primary mb-2.5 text-[20px] sm:text-[22px]">Extracciones dentales</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant text-[14px] leading-relaxed">
+                                    Procedimiento cuidadoso con anestesia local para eliminar el dolor, tratar piezas no salvables y evitar infecciones.
+                                </p>
                             </div>
-                            <div class="mt-4 flex items-center text-teal-muted font-label-bold text-label-bold">
-                                Ver Procedimiento <span class="material-symbols-outlined ml-2 text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
-                            </div>
-
-                            <!-- Detalle Desplegable -->
-                            <div class="absolute inset-0 bg-surface z-20 rounded-2xl p-6 sm:p-8 opacity-0 pointer-events-none transform scale-95 transition-all duration-300 flex flex-col justify-between border border-outline-variant shadow-xl"
-                                 id="desc-1">
-                                <div>
-                                    <div class="flex items-center justify-between mb-3">
-                                        <h4 class="font-label-bold text-label-bold text-primary uppercase tracking-wide">Extracciones dentales</h4>
-                                        <button onclick="event.stopPropagation(); toggleServiceDetail('desc-1')"
-                                                class="text-on-surface-variant hover:text-error transition-colors p-1" aria-label="Cerrar detalle">
-                                            <span class="material-symbols-outlined text-[22px]">close</span>
-                                        </button>
-                                    </div>
-                                    <p class="font-body-md text-body-md text-on-surface-variant text-[15px] leading-relaxed">
-                                        Cuando un diente está muy dañado por caries o fracturas y ya no se puede salvar, una extracción a tiempo es la mejor solución para eliminar el dolor y prevenir infecciones mayores. Realizamos el procedimiento con anestesia local para que estés cómodo y relajado en todo momento. ¡Dile adiós a las molestias y cuida tu salud bucal!
-                                    </p>
-                                </div>
-                                <div class="pt-4">
-                                    <a href="https://wa.me/522741403668?text=Hola%20Family%20Dent%2C%20me%20interesa%20informaci%C3%B3n%20y%20cotizaci%C3%B3n%20sobre%20Extracciones%20dentales"
-                                       target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()"
-                                       class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-dental-highlight text-on-secondary-fixed font-label-bold text-caption rounded-full hover:shadow-md transition-all gap-2">
-                                        <span class="material-symbols-outlined text-[16px]">chat</span>
-                                        Cotizar por WhatsApp
-                                    </a>
-                                </div>
+                            <div class="mt-5 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-teal-muted font-label-bold text-label-bold group-hover:text-gold-leaf transition-colors">
+                                <span>Ver Procedimiento</span>
+                                <span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
                             </div>
                         </div>
 
                         <!-- Servicio 2: Resinas -->
-                        <div class="service-card group relative bg-surface p-8 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer h-full flex flex-col justify-between"
-                             onclick="toggleServiceDetail('desc-2')">
+                        <div class="service-card group relative bg-surface p-7 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer flex flex-col justify-between"
+                             onclick="openServiceModal('desc-2')">
                             <div>
-                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary-fixed transition-colors">
-                                    <span class="material-symbols-outlined text-teal-muted text-[28px]">healing</span>
+                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-5 group-hover:bg-teal-muted group-hover:text-on-primary transition-all text-teal-muted">
+                                    <span class="material-symbols-outlined text-[28px]">healing</span>
                                 </div>
-                                <h3 class="font-headline-md text-headline-md text-primary mb-3 text-[22px]">Resinas</h3>
+                                <h3 class="font-headline-md text-headline-md text-primary mb-2.5 text-[20px] sm:text-[22px]">Resinas</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant text-[14px] leading-relaxed">
+                                    Rellenos estéticos del mismo color de tu diente para reparar caries o pequeñas fracturas con aspecto 100% natural.
+                                </p>
                             </div>
-                            <div class="mt-4 flex items-center text-teal-muted font-label-bold text-label-bold">
-                                Ver Procedimiento <span class="material-symbols-outlined ml-2 text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
-                            </div>
-
-                            <!-- Detalle Desplegable -->
-                            <div class="absolute inset-0 bg-surface z-20 rounded-2xl p-6 sm:p-8 opacity-0 pointer-events-none transform scale-95 transition-all duration-300 flex flex-col justify-between border border-outline-variant shadow-xl"
-                                 id="desc-2">
-                                <div>
-                                    <div class="flex items-center justify-between mb-3">
-                                        <h4 class="font-label-bold text-label-bold text-primary uppercase tracking-wide">Resinas</h4>
-                                        <button onclick="event.stopPropagation(); toggleServiceDetail('desc-2')"
-                                                class="text-on-surface-variant hover:text-error transition-colors p-1" aria-label="Cerrar detalle">
-                                            <span class="material-symbols-outlined text-[22px]">close</span>
-                                        </button>
-                                    </div>
-                                    <p class="font-body-md text-body-md text-on-surface-variant text-[15px] leading-relaxed">
-                                        ¿Tienes una pequeña caries o una fractura en tu diente? Las resinas son rellenos del mismo color de tu diente que reparan el daño de forma rápida y sin dolor. Al colocarse, quedan tan naturales que nadie notará que las llevas. Son la opción perfecta para lucir una sonrisa sana y visualmente impecable.
-                                    </p>
-                                </div>
-                                <div class="pt-4">
-                                    <a href="https://wa.me/522741403668?text=Hola%20Family%20Dent%2C%20me%20interesa%20informaci%C3%B3n%20y%20cotizaci%C3%B3n%20sobre%20Resinas"
-                                       target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()"
-                                       class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-dental-highlight text-on-secondary-fixed font-label-bold text-caption rounded-full hover:shadow-md transition-all gap-2">
-                                        <span class="material-symbols-outlined text-[16px]">chat</span>
-                                        Cotizar por WhatsApp
-                                    </a>
-                                </div>
+                            <div class="mt-5 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-teal-muted font-label-bold text-label-bold group-hover:text-gold-leaf transition-colors">
+                                <span>Ver Procedimiento</span>
+                                <span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
                             </div>
                         </div>
 
                         <!-- Servicio 3: Cirugías -->
-                        <div class="service-card group relative bg-surface p-8 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer h-full flex flex-col justify-between"
-                             onclick="toggleServiceDetail('desc-3')">
+                        <div class="service-card group relative bg-surface p-7 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer flex flex-col justify-between"
+                             onclick="openServiceModal('desc-3')">
                             <div>
-                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary-fixed transition-colors">
-                                    <span class="material-symbols-outlined text-teal-muted text-[28px]">vital_signs</span>
+                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-5 group-hover:bg-teal-muted group-hover:text-on-primary transition-all text-teal-muted">
+                                    <span class="material-symbols-outlined text-[28px]">vital_signs</span>
                                 </div>
-                                <h3 class="font-headline-md text-headline-md text-primary mb-3 text-[22px]">Cirugías</h3>
+                                <h3 class="font-headline-md text-headline-md text-primary mb-2.5 text-[20px] sm:text-[22px]">Cirugías</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant text-[14px] leading-relaxed">
+                                    Extracción controlada de muelas del juicio y cirugías orales para evitar desalineación, apiñamiento y molestias.
+                                </p>
                             </div>
-                            <div class="mt-4 flex items-center text-teal-muted font-label-bold text-label-bold">
-                                Ver Procedimiento <span class="material-symbols-outlined ml-2 text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
-                            </div>
-
-                            <!-- Detalle Desplegable -->
-                            <div class="absolute inset-0 bg-surface z-20 rounded-2xl p-6 sm:p-8 opacity-0 pointer-events-none transform scale-95 transition-all duration-300 flex flex-col justify-between border border-outline-variant shadow-xl"
-                                 id="desc-3">
-                                <div>
-                                    <div class="flex items-center justify-between mb-3">
-                                        <h4 class="font-label-bold text-label-bold text-primary uppercase tracking-wide">Cirugías</h4>
-                                        <button onclick="event.stopPropagation(); toggleServiceDetail('desc-3')"
-                                                class="text-on-surface-variant hover:text-error transition-colors p-1" aria-label="Cerrar detalle">
-                                            <span class="material-symbols-outlined text-[22px]">close</span>
-                                        </button>
-                                    </div>
-                                    <p class="font-body-md text-body-md text-on-surface-variant text-[15px] leading-relaxed">
-                                        Si sientes presión, dolor en la mandíbula o notas que tus muelas del juicio están empujando a los demás dientes, es momento de valorarlas. Con una intervención quirúrgica sencilla y controlada, retiramos los terceros molares sin espacio para evitar infecciones, desalineaciones y molestias mayores. ¡Protege la alineación y salud de tu sonrisa!
-                                    </p>
-                                </div>
-                                <div class="pt-4">
-                                    <a href="https://wa.me/522741403668?text=Hola%20Family%20Dent%2C%20me%20interesa%20informaci%C3%B3n%20y%20cotizaci%C3%B3n%20sobre%20Cirug%C3%ADas"
-                                       target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()"
-                                       class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-dental-highlight text-on-secondary-fixed font-label-bold text-caption rounded-full hover:shadow-md transition-all gap-2">
-                                        <span class="material-symbols-outlined text-[16px]">chat</span>
-                                        Cotizar por WhatsApp
-                                    </a>
-                                </div>
+                            <div class="mt-5 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-teal-muted font-label-bold text-label-bold group-hover:text-gold-leaf transition-colors">
+                                <span>Ver Procedimiento</span>
+                                <span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
                             </div>
                         </div>
 
                         <!-- Servicio 4: Profilaxis -->
-                        <div class="service-card group relative bg-surface p-8 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer h-full flex flex-col justify-between"
-                             onclick="toggleServiceDetail('desc-4')">
+                        <div class="service-card group relative bg-surface p-7 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer flex flex-col justify-between"
+                             onclick="openServiceModal('desc-4')">
                             <div>
-                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary-fixed transition-colors">
-                                    <span class="material-symbols-outlined text-teal-muted text-[28px]">clean_hands</span>
+                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-5 group-hover:bg-teal-muted group-hover:text-on-primary transition-all text-teal-muted">
+                                    <span class="material-symbols-outlined text-[28px]">clean_hands</span>
                                 </div>
-                                <h3 class="font-headline-md text-headline-md text-primary mb-3 text-[22px]">Profilaxis</h3>
+                                <h3 class="font-headline-md text-headline-md text-primary mb-2.5 text-[20px] sm:text-[22px]">Profilaxis</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant text-[14px] leading-relaxed">
+                                    Limpieza profunda con tecnología ultrasónica que elimina sarro, placa bacteriana y manchas superficiales.
+                                </p>
                             </div>
-                            <div class="mt-4 flex items-center text-teal-muted font-label-bold text-label-bold">
-                                Ver Procedimiento <span class="material-symbols-outlined ml-2 text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
-                            </div>
-
-                            <!-- Detalle Desplegable -->
-                            <div class="absolute inset-0 bg-surface z-20 rounded-2xl p-6 sm:p-8 opacity-0 pointer-events-none transform scale-95 transition-all duration-300 flex flex-col justify-between border border-outline-variant shadow-xl"
-                                 id="desc-4">
-                                <div>
-                                    <div class="flex items-center justify-between mb-3">
-                                        <h4 class="font-label-bold text-label-bold text-primary uppercase tracking-wide">Profilaxis</h4>
-                                        <button onclick="event.stopPropagation(); toggleServiceDetail('desc-4')"
-                                                class="text-on-surface-variant hover:text-error transition-colors p-1" aria-label="Cerrar detalle">
-                                            <span class="material-symbols-outlined text-[22px]">close</span>
-                                        </button>
-                                    </div>
-                                    <p class="font-body-md text-body-md text-on-surface-variant text-[15px] leading-relaxed">
-                                        Aunque te cepilles todos los días, siempre hay zonas donde las cerdas no alcanzan, por tanto el sarro y la placa se acumulan. Nuestra limpieza dental ultrasónica remueve esas impurezas y manchas superficiales, dejando tus dientes suaves, brillantes y tus encías sanas. Es el tratamiento ideal cada 6 meses para prevenir caries y mantener un aliento fresco todo el día.
-                                    </p>
-                                </div>
-                                <div class="pt-4">
-                                    <a href="https://wa.me/522741403668?text=Hola%20Family%20Dent%2C%20me%20interesa%20informaci%C3%B3n%20y%20cotizaci%C3%B3n%20sobre%20Profilaxis"
-                                       target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()"
-                                       class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-dental-highlight text-on-secondary-fixed font-label-bold text-caption rounded-full hover:shadow-md transition-all gap-2">
-                                        <span class="material-symbols-outlined text-[16px]">chat</span>
-                                        Cotizar por WhatsApp
-                                    </a>
-                                </div>
+                            <div class="mt-5 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-teal-muted font-label-bold text-label-bold group-hover:text-gold-leaf transition-colors">
+                                <span>Ver Procedimiento</span>
+                                <span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
                             </div>
                         </div>
 
                         <!-- Servicio 5: Aplicación de flúor -->
-                        <div class="service-card group relative bg-surface p-8 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer h-full flex flex-col justify-between"
-                             onclick="toggleServiceDetail('desc-5')">
+                        <div class="service-card group relative bg-surface p-7 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer flex flex-col justify-between"
+                             onclick="openServiceModal('desc-5')">
                             <div>
-                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary-fixed transition-colors">
-                                    <span class="material-symbols-outlined text-teal-muted text-[28px]">water_drop</span>
+                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-5 group-hover:bg-teal-muted group-hover:text-on-primary transition-all text-teal-muted">
+                                    <span class="material-symbols-outlined text-[28px]">water_drop</span>
                                 </div>
-                                <h3 class="font-headline-md text-headline-md text-primary mb-3 text-[22px]">Aplicación de flúor</h3>
+                                <h3 class="font-headline-md text-headline-md text-primary mb-2.5 text-[20px] sm:text-[22px]">Aplicación de flúor</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant text-[14px] leading-relaxed">
+                                    Tratamiento preventivo para niños y adultos que remineraliza el esmalte y protege tus dientes contra las caries.
+                                </p>
                             </div>
-                            <div class="mt-4 flex items-center text-teal-muted font-label-bold text-label-bold">
-                                Ver Procedimiento <span class="material-symbols-outlined ml-2 text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
-                            </div>
-
-                            <!-- Detalle Desplegable -->
-                            <div class="absolute inset-0 bg-surface z-20 rounded-2xl p-6 sm:p-8 opacity-0 pointer-events-none transform scale-95 transition-all duration-300 flex flex-col justify-between border border-outline-variant shadow-xl"
-                                 id="desc-5">
-                                <div>
-                                    <div class="flex items-center justify-between mb-3">
-                                        <h4 class="font-label-bold text-label-bold text-primary uppercase tracking-wide">Aplicación de flúor</h4>
-                                        <button onclick="event.stopPropagation(); toggleServiceDetail('desc-5')"
-                                                class="text-on-surface-variant hover:text-error transition-colors p-1" aria-label="Cerrar detalle">
-                                            <span class="material-symbols-outlined text-[22px]">close</span>
-                                        </button>
-                                    </div>
-                                    <p class="font-body-md text-body-md text-on-surface-variant text-[15px] leading-relaxed">
-                                        Protege a los peques de la casa y cuida su sonrisa contra la sensibilidad y los ataques de las bacterias que causan caries con una aplicación de flúor. Es un tratamiento rápido, cómodo y súper efectivo que remineraliza el esmalte dental, volviéndolo más fuerte ante la caries. Perfecto tanto para niños como para adultos que desean blindar su dentadura.
-                                    </p>
-                                </div>
-                                <div class="pt-4">
-                                    <a href="https://wa.me/522741403668?text=Hola%20Family%20Dent%2C%20me%20interesa%20informaci%C3%B3n%20y%20cotizaci%C3%B3n%20sobre%20Aplicaci%C3%B3n%20de%20fl%C3%BAor"
-                                       target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()"
-                                       class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-dental-highlight text-on-secondary-fixed font-label-bold text-caption rounded-full hover:shadow-md transition-all gap-2">
-                                        <span class="material-symbols-outlined text-[16px]">chat</span>
-                                        Cotizar por WhatsApp
-                                    </a>
-                                </div>
+                            <div class="mt-5 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-teal-muted font-label-bold text-label-bold group-hover:text-gold-leaf transition-colors">
+                                <span>Ver Procedimiento</span>
+                                <span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
                             </div>
                         </div>
 
                         <!-- Servicio 6: Férulas o guardas oclusales -->
-                        <div class="service-card group relative bg-surface p-8 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer h-full flex flex-col justify-between"
-                             onclick="toggleServiceDetail('desc-6')">
+                        <div class="service-card group relative bg-surface p-7 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer flex flex-col justify-between"
+                             onclick="openServiceModal('desc-6')">
                             <div>
-                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary-fixed transition-colors">
-                                    <span class="material-symbols-outlined text-teal-muted text-[28px]">shield</span>
+                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-5 group-hover:bg-teal-muted group-hover:text-on-primary transition-all text-teal-muted">
+                                    <span class="material-symbols-outlined text-[28px]">shield</span>
                                 </div>
-                                <h3 class="font-headline-md text-headline-md text-primary mb-3 text-[22px]">Férulas o guardas oclusales</h3>
+                                <h3 class="font-headline-md text-headline-md text-primary mb-2.5 text-[20px] sm:text-[22px]">Férulas o guardas oclusales</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant text-[14px] leading-relaxed">
+                                    Guardas a tu medida para combatir el bruxismo (rechinar los dientes), relajando la mandíbula y evitando el desgaste.
+                                </p>
                             </div>
-                            <div class="mt-4 flex items-center text-teal-muted font-label-bold text-label-bold">
-                                Ver Procedimiento <span class="material-symbols-outlined ml-2 text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
-                            </div>
-
-                            <!-- Detalle Desplegable -->
-                            <div class="absolute inset-0 bg-surface z-20 rounded-2xl p-6 sm:p-8 opacity-0 pointer-events-none transform scale-95 transition-all duration-300 flex flex-col justify-between border border-outline-variant shadow-xl"
-                                 id="desc-6">
-                                <div>
-                                    <div class="flex items-center justify-between mb-3">
-                                        <h4 class="font-label-bold text-label-bold text-primary uppercase tracking-wide">Férulas o guardas oclusales</h4>
-                                        <button onclick="event.stopPropagation(); toggleServiceDetail('desc-6')"
-                                                class="text-on-surface-variant hover:text-error transition-colors p-1" aria-label="Cerrar detalle">
-                                            <span class="material-symbols-outlined text-[22px]">close</span>
-                                        </button>
-                                    </div>
-                                    <p class="font-body-md text-body-md text-on-surface-variant text-[15px] leading-relaxed">
-                                        Si aprietas o rechinas los dientes por las noches (bruxismo), puedes estar desgastándolos y generando tensión en tu mandíbula. Diseñamos un guarda oclusal a la medida de tu boca, cómoda y resistente, que actúa como un cojín protector mientras duermes. ¡Asegura un descanso reparador y protege tus piezas dentales!
-                                    </p>
-                                </div>
-                                <div class="pt-4">
-                                    <a href="https://wa.me/522741403668?text=Hola%20Family%20Dent%2C%20me%20interesa%20informaci%C3%B3n%20y%20cotizaci%C3%B3n%20sobre%20F%C3%A9rulas%20o%20guardas%20oclusales"
-                                       target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()"
-                                       class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-dental-highlight text-on-secondary-fixed font-label-bold text-caption rounded-full hover:shadow-md transition-all gap-2">
-                                        <span class="material-symbols-outlined text-[16px]">chat</span>
-                                        Cotizar por WhatsApp
-                                    </a>
-                                </div>
+                            <div class="mt-5 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-teal-muted font-label-bold text-label-bold group-hover:text-gold-leaf transition-colors">
+                                <span>Ver Procedimiento</span>
+                                <span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
                             </div>
                         </div>
 
                         <!-- Servicio 7: Prótesis -->
-                        <div class="service-card group relative bg-surface p-8 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer h-full flex flex-col justify-between"
-                             onclick="toggleServiceDetail('desc-7')">
+                        <div class="service-card group relative bg-surface p-7 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer flex flex-col justify-between"
+                             onclick="openServiceModal('desc-7')">
                             <div>
-                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary-fixed transition-colors">
-                                    <span class="material-symbols-outlined text-teal-muted text-[28px]">sentiment_very_satisfied</span>
+                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-5 group-hover:bg-teal-muted group-hover:text-on-primary transition-all text-teal-muted">
+                                    <span class="material-symbols-outlined text-[28px]">sentiment_very_satisfied</span>
                                 </div>
-                                <h3 class="font-headline-md text-headline-md text-primary mb-3 text-[22px]">Prótesis</h3>
+                                <h3 class="font-headline-md text-headline-md text-primary mb-2.5 text-[20px] sm:text-[22px]">Prótesis</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant text-[14px] leading-relaxed">
+                                    Soluciones fijas o removibles personalizadas para recuperar piezas dentales, masticar con seguridad y sonreír con confianza.
+                                </p>
                             </div>
-                            <div class="mt-4 flex items-center text-teal-muted font-label-bold text-label-bold">
-                                Ver Procedimiento <span class="material-symbols-outlined ml-2 text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
-                            </div>
-
-                            <!-- Detalle Desplegable -->
-                            <div class="absolute inset-0 bg-surface z-20 rounded-2xl p-6 sm:p-8 opacity-0 pointer-events-none transform scale-95 transition-all duration-300 flex flex-col justify-between border border-outline-variant shadow-xl"
-                                 id="desc-7">
-                                <div>
-                                    <div class="flex items-center justify-between mb-3">
-                                        <h4 class="font-label-bold text-label-bold text-primary uppercase tracking-wide">Prótesis</h4>
-                                        <button onclick="event.stopPropagation(); toggleServiceDetail('desc-7')"
-                                                class="text-on-surface-variant hover:text-error transition-colors p-1" aria-label="Cerrar detalle">
-                                            <span class="material-symbols-outlined text-[22px]">close</span>
-                                        </button>
-                                    </div>
-                                    <p class="font-body-md text-body-md text-on-surface-variant text-[15px] leading-relaxed">
-                                        Si te falta uno o varios dientes, no tienes por qué renunciar a tu calidad de vida. Nuestras prótesis dentales están diseñadas a la medida de tu boca para devolverte la capacidad de masticar con firmeza y lucir una sonrisa completa y estética. Ya sea fija o removible, adaptamos la mejor opción a tus necesidades para que vuelvas a sonreír con total confianza y comodidad.
-                                    </p>
-                                </div>
-                                <div class="pt-4">
-                                    <a href="https://wa.me/522741403668?text=Hola%20Family%20Dent%2C%20me%20interesa%20informaci%C3%B3n%20y%20cotizaci%C3%B3n%20sobre%20Pr%C3%B3tesis"
-                                       target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()"
-                                       class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-dental-highlight text-on-secondary-fixed font-label-bold text-caption rounded-full hover:shadow-md transition-all gap-2">
-                                        <span class="material-symbols-outlined text-[16px]">chat</span>
-                                        Cotizar por WhatsApp
-                                    </a>
-                                </div>
+                            <div class="mt-5 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-teal-muted font-label-bold text-label-bold group-hover:text-gold-leaf transition-colors">
+                                <span>Ver Procedimiento</span>
+                                <span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
                             </div>
                         </div>
 
                         <!-- Servicio 8: Blanqueamiento -->
-                        <div class="service-card group relative bg-surface p-8 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer h-full flex flex-col justify-between"
-                             onclick="toggleServiceDetail('desc-8')">
+                        <div class="service-card group relative bg-surface p-7 rounded-2xl hover:shadow-[0_12px_40px_rgba(15,46,45,0.08)] transition-all duration-300 border-b-2 border-transparent hover:border-gold-leaf cursor-pointer flex flex-col justify-between"
+                             onclick="openServiceModal('desc-8')">
                             <div>
-                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary-fixed transition-colors">
-                                    <span class="material-symbols-outlined text-teal-muted text-[28px]">auto_awesome</span>
+                                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center mb-5 group-hover:bg-teal-muted group-hover:text-on-primary transition-all text-teal-muted">
+                                    <span class="material-symbols-outlined text-[28px]">auto_awesome</span>
                                 </div>
-                                <h3 class="font-headline-md text-headline-md text-primary mb-3 text-[22px]">Blanqueamiento</h3>
+                                <h3 class="font-headline-md text-headline-md text-primary mb-2.5 text-[20px] sm:text-[22px]">Blanqueamiento</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant text-[14px] leading-relaxed">
+                                    Tratamiento profesional que elimina manchas y aclara varios tonos sin dañar el esmalte, devolviendo el brillo a tu sonrisa.
+                                </p>
                             </div>
-                            <div class="mt-4 flex items-center text-teal-muted font-label-bold text-label-bold">
-                                Ver Procedimiento <span class="material-symbols-outlined ml-2 text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
-                            </div>
-
-                            <!-- Detalle Desplegable -->
-                            <div class="absolute inset-0 bg-surface z-20 rounded-2xl p-6 sm:p-8 opacity-0 pointer-events-none transform scale-95 transition-all duration-300 flex flex-col justify-between border border-outline-variant shadow-xl"
-                                 id="desc-8">
-                                <div>
-                                    <div class="flex items-center justify-between mb-3">
-                                        <h4 class="font-label-bold text-label-bold text-primary uppercase tracking-wide">Blanqueamiento</h4>
-                                        <button onclick="event.stopPropagation(); toggleServiceDetail('desc-8')"
-                                                class="text-on-surface-variant hover:text-error transition-colors p-1" aria-label="Cerrar detalle">
-                                            <span class="material-symbols-outlined text-[22px]">close</span>
-                                        </button>
-                                    </div>
-                                    <p class="font-body-md text-body-md text-on-surface-variant text-[15px] leading-relaxed">
-                                        ¿Sientes que tus dientes han perdido su brillo por el café, té o el paso del tiempo? Con nuestro blanqueamiento dental profesional puedes eliminar las manchas profundas y aclarar varios tonos de manera rápida, segura y sin dañar tu esmalte. Es el tratamiento ideal para renovar tu imagen y lucir una sonrisa espectacular en cualquier ocasión.
-                                    </p>
-                                </div>
-                                <div class="pt-4">
-                                    <a href="https://wa.me/522741403668?text=Hola%20Family%20Dent%2C%20me%20interesa%20informaci%C3%B3n%20y%20cotizaci%C3%B3n%20sobre%20Blanqueamiento"
-                                       target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()"
-                                       class="inline-flex items-center justify-center w-full py-2.5 px-4 bg-dental-highlight text-on-secondary-fixed font-label-bold text-caption rounded-full hover:shadow-md transition-all gap-2">
-                                        <span class="material-symbols-outlined text-[16px]">chat</span>
-                                        Cotizar por WhatsApp
-                                    </a>
-                                </div>
+                            <div class="mt-5 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-teal-muted font-label-bold text-label-bold group-hover:text-gold-leaf transition-colors">
+                                <span>Ver Procedimiento</span>
+                                <span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
                             </div>
                         </div>
 
+                    </div>
+
+                    <!-- Modal Elegante de Detalle de Servicio -->
+                    <div id="serviceDetailModal" 
+                         class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-teal-dark/60 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300"
+                         onclick="if(event.target === this) closeServiceModal()"
+                         role="dialog" aria-modal="true" aria-labelledby="modalServiceTitle">
+                        
+                        <div class="relative bg-surface w-full max-w-lg rounded-3xl p-6 sm:p-8 shadow-2xl border border-outline-variant/60 transform scale-95 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                             onclick="event.stopPropagation()">
+                            
+                            <!-- Botón cerrar superior -->
+                            <button onclick="closeServiceModal()" 
+                                    class="absolute top-5 right-5 w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-teal-dark flex items-center justify-center transition-colors shadow-sm focus:outline-none"
+                                    aria-label="Cerrar detalle">
+                                <span class="material-symbols-outlined text-[20px]">close</span>
+                            </button>
+
+                            <!-- Contenido del modal -->
+                            <div class="space-y-4">
+                                <!-- Icono y categoría -->
+                                <div class="flex items-center gap-3 pr-10">
+                                    <div class="w-12 h-12 rounded-2xl bg-teal-muted text-on-primary flex items-center justify-center shadow-md shrink-0">
+                                        <span id="modalServiceIcon" class="material-symbols-outlined text-[26px]">medical_services</span>
+                                    </div>
+                                    <div>
+                                        <span id="modalServiceCategory" class="text-caption uppercase tracking-wider font-bold text-teal-muted">Tratamiento Odontológico</span>
+                                        <h3 id="modalServiceTitle" class="font-headline-md text-headline-md text-primary text-[22px] sm:text-[24px] leading-tight">Título del Servicio</h3>
+                                    </div>
+                                </div>
+
+                                <!-- Badge destacado -->
+                                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-caption font-bold">
+                                    <span class="material-symbols-outlined text-[16px]">verified</span>
+                                    <span id="modalServiceBadge">Atención personalizada y profesional</span>
+                                </div>
+
+                                <!-- Descripción completa -->
+                                <p id="modalServiceDesc" class="font-body-md text-body-md text-on-surface-variant text-[15px] sm:text-[16px] leading-relaxed pt-1">
+                                    Descripción detallada del servicio...
+                                </p>
+                            </div>
+
+                            <!-- Acciones en el pie del modal -->
+                            <div class="pt-6 border-t border-outline-variant/40 mt-6 flex flex-col sm:flex-row gap-3">
+                                <a id="modalServiceWhatsapp" 
+                                   href="#" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="flex-1 py-3.5 px-6 bg-dental-highlight text-on-secondary-fixed font-label-bold text-caption sm:text-body-md rounded-full text-center hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">chat</span>
+                                    Cotizar por WhatsApp
+                                </a>
+                                <button onclick="closeServiceModal()"
+                                        class="py-3 px-5 border border-outline-variant text-on-surface-variant font-label-bold rounded-full hover:bg-surface-container transition-colors text-center text-caption">
+                                    Cerrar
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -649,7 +540,7 @@
                                     </div>
                                     <div>
                                         <h4 class="font-label-bold text-label-bold text-primary">Dirección</h4>
-                                        <p class="font-body-md text-body-md text-on-surface-variant mt-1">Calle Real #123, Zona Centro, Orizaba, Veracruz, México.</p>
+                                        <p class="font-body-md text-body-md text-on-surface-variant mt-1">Sur 17 105, Centro, 94300 Orizaba, Ver.</p>
                                     </div>
                                 </div>
 
@@ -708,7 +599,7 @@
                                     <span class="material-symbols-outlined text-[18px]">calendar_month</span>
                                     Agendar Cita
                                 </a>
-                                <a href="https://maps.google.com/?q=Orizaba+Veracruz" target="_blank" rel="noopener noreferrer"
+                                <a href="https://maps.app.goo.gl/so6mptSCFuSoQeJH8?g_st=iw" target="_blank" rel="noopener noreferrer"
                                    class="px-6 py-3.5 border-2 border-teal-muted text-teal-muted font-label-bold text-caption rounded-full text-center hover:bg-teal-muted/10 transition-colors flex items-center justify-center gap-2">
                                     <span class="material-symbols-outlined text-[18px]">directions</span>
                                     Cómo Llegar
@@ -729,7 +620,7 @@
                             <div class="map-container h-full min-h-[420px]">
                                 <iframe
                                     title="Ubicación de Family Dent en Google Maps"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30232.88451874421!2d-97.11303868266453!3d18.85040778848773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c502b4d96c91a3%3A0x8e820cf78c6e26aa!2sOrizaba%2C%20Ver.!5e0!3m2!1ses-419!2smx!4v1710000000000!5m2!1ses-419!2smx"
+                                    src="https://maps.google.com/maps?q=Family+Dent,+Sur+17+105,+Centro,+94300+Orizaba,+Ver.&amp;output=embed"
                                     width="100%"
                                     height="100%"
                                     style="border:0;"
@@ -745,38 +636,130 @@
 
         </div>
 
-        <!-- Script para interactividad de tarjetas de servicios -->
+        <!-- Script para interactividad de tarjetas de servicios y modal -->
         <script>
-            function toggleServiceDetail(id) {
-                const el = document.getElementById(id);
-                if (!el) return;
-
-                const isHidden = el.classList.contains('opacity-0');
-
-                // Cerrar todos los demás detalles abiertos
-                document.querySelectorAll('[id^="desc-"]').forEach(desc => {
-                    if (desc.id !== id) {
-                        desc.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
-                        desc.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
-                    }
-                });
-
-                if (isHidden) {
-                    el.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
-                    el.classList.add('opacity-100', 'pointer-events-auto', 'scale-100');
-                } else {
-                    el.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
-                    el.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
+            const servicesData = {
+                'desc-1': {
+                    title: 'Extracciones dentales',
+                    icon: 'medical_services',
+                    category: 'Cirugía & Tratamiento',
+                    badge: 'Procedimiento seguro • Anestesia local',
+                    desc: 'Cuando un diente está muy dañado por caries o fracturas y ya no se puede salvar, una extracción a tiempo es la mejor solución para eliminar el dolor y prevenir infecciones mayores. Realizamos el procedimiento con anestesia local para que estés cómodo y relajado en todo momento. ¡Dile adiós a las molestias y cuida tu salud bucal!',
+                    whatsappText: 'Extracciones dentales'
+                },
+                'desc-2': {
+                    title: 'Resinas',
+                    icon: 'healing',
+                    category: 'Odontología Estética',
+                    badge: 'Acabado natural • Relleno estético',
+                    desc: '¿Tienes una pequeña caries o una fractura en tu diente? Las resinas son rellenos del mismo color de tu diente que reparan el daño de forma rápida y sin dolor. Al colocarse, quedan tan naturales que nadie notará que las llevas. Son la opción perfecta para lucir una sonrisa sana y visualmente impecable.',
+                    whatsappText: 'Resinas'
+                },
+                'desc-3': {
+                    title: 'Cirugías',
+                    icon: 'vital_signs',
+                    category: 'Cirugía Oral & Maxilofacial',
+                    badge: 'Muelas del juicio • Sin dolor',
+                    desc: 'Si sientes presión, dolor en la mandíbula o notas que tus muelas del juicio están empujando a los demás dientes, es momento de valorarlas. Con una intervención quirúrgica sencilla y controlada, retiramos los terceros molares sin espacio para evitar infecciones, desalineaciones y molestias mayores. ¡Protege la alineación y salud de tu sonrisa!',
+                    whatsappText: 'Cirugías'
+                },
+                'desc-4': {
+                    title: 'Profilaxis',
+                    icon: 'clean_hands',
+                    category: 'Prevención & Limpieza',
+                    badge: 'Limpieza ultrasónica • Aliento fresco',
+                    desc: 'Aunque te cepilles todos los días, siempre hay zonas donde las cerdas no alcanzan, por tanto el sarro y la placa se acumulan. Nuestra limpieza dental ultrasónica remueve esas impurezas y manchas superficiales, dejando tus dientes suaves, brillantes y tus encías sanas. Es el tratamiento ideal cada 6 meses para prevenir caries y mantener un aliento fresco todo el día.',
+                    whatsappText: 'Profilaxis'
+                },
+                'desc-5': {
+                    title: 'Aplicación de flúor',
+                    icon: 'water_drop',
+                    category: 'Prevención Infantil y Adultos',
+                    badge: 'Blindaje contra caries • Fortalece el esmalte',
+                    desc: 'Protege a los peques de la casa y cuida su sonrisa contra la sensibilidad y los ataques de las bacterias que causan caries con una aplicación de flúor. Es un tratamiento rápido, cómodo y súper efectivo que remineraliza el esmalte dental, volviéndolo más fuerte ante la caries. Perfecto tanto para niños como para adultos que desean blindar su dentadura.',
+                    whatsappText: 'Aplicación de flúor'
+                },
+                'desc-6': {
+                    title: 'Férulas o guardas oclusales',
+                    icon: 'shield',
+                    category: 'Protección Dental & Bruxismo',
+                    badge: 'A la medida • Alivio mandibular nocturno',
+                    desc: 'Si aprietas o rechinas los dientes por las noches (bruxismo), puedes estar desgastándolos y generando tensión en tu mandíbula. Diseñamos un guarda oclusal a la medida de tu boca, cómoda y resistente, que actúa como un cojín protector mientras duermes. ¡Asegura un descanso reparador y protege tus piezas dentales!',
+                    whatsappText: 'Férulas o guardas oclusales'
+                },
+                'desc-7': {
+                    title: 'Prótesis',
+                    icon: 'sentiment_very_satisfied',
+                    category: 'Rehabilitación Oral',
+                    badge: 'Fija o removible • Mordida y estética completa',
+                    desc: 'Si te falta uno o varios dientes, no tienes por qué renunciar a tu calidad de vida. Nuestras prótesis dentales están diseñadas a la medida de tu boca para devolverte la capacidad de masticar con firmeza y lucir una sonrisa completa y estética. Ya sea fija o removible, adaptamos la mejor opción a tus necesidades para que vuelvas a sonreír con total confianza y comodidad.',
+                    whatsappText: 'Prótesis'
+                },
+                'desc-8': {
+                    title: 'Blanqueamiento',
+                    icon: 'auto_awesome',
+                    category: 'Estética Dental Premium',
+                    badge: 'Aclara varios tonos • Seguro para tu esmalte',
+                    desc: '¿Sientes que tus dientes han perdido su brillo por el café, té o el paso del tiempo? Con nuestro blanqueamiento dental profesional puedes eliminar las manchas profundas y aclarar varios tonos de manera rápida, segura y sin dañar tu esmalte. Es el tratamiento ideal para renovar tu imagen y lucir una sonrisa espectacular en cualquier ocasión.',
+                    whatsappText: 'Blanqueamiento'
                 }
+            };
+
+            function toggleServiceDetail(id) {
+                openServiceModal(id);
+            }
+
+            function openServiceModal(id) {
+                const data = servicesData[id];
+                if (!data) return;
+
+                const modal = document.getElementById('serviceDetailModal');
+                const modalTitle = document.getElementById('modalServiceTitle');
+                const modalIcon = document.getElementById('modalServiceIcon');
+                const modalCategory = document.getElementById('modalServiceCategory');
+                const modalBadge = document.getElementById('modalServiceBadge');
+                const modalDesc = document.getElementById('modalServiceDesc');
+                const modalWhatsapp = document.getElementById('modalServiceWhatsapp');
+
+                if (!modal) return;
+
+                if (modalTitle) modalTitle.textContent = data.title;
+                if (modalIcon) modalIcon.textContent = data.icon;
+                if (modalCategory) modalCategory.textContent = data.category;
+                if (modalBadge) modalBadge.textContent = data.badge;
+                if (modalDesc) modalDesc.textContent = data.desc;
+                if (modalWhatsapp) {
+                    modalWhatsapp.href = `https://wa.me/522741403668?text=${encodeURIComponent('Hola Family Dent, me interesa información y cotización sobre ' + data.whatsappText)}`;
+                }
+
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.classList.add('opacity-100', 'pointer-events-auto');
+                const card = modal.querySelector('.relative');
+                if (card) {
+                    card.classList.remove('scale-95');
+                    card.classList.add('scale-100');
+                }
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeServiceModal() {
+                const modal = document.getElementById('serviceDetailModal');
+                if (!modal) return;
+
+                modal.classList.remove('opacity-100', 'pointer-events-auto');
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                const card = modal.querySelector('.relative');
+                if (card) {
+                    card.classList.remove('scale-100');
+                    card.classList.add('scale-95');
+                }
+                document.body.style.overflow = '';
             }
 
             // Cerrar con la tecla Escape
             document.addEventListener('keydown', function(event) {
                 if (event.key === "Escape") {
-                    document.querySelectorAll('[id^="desc-"]').forEach(desc => {
-                        desc.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
-                        desc.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
-                    });
+                    closeServiceModal();
                 }
             });
         </script>
@@ -802,7 +785,7 @@
             <div class="space-y-4">
                 <div class="flex items-center gap-3 mb-4">
                     <img src="assets/images/logo.png" alt="Family Dent" class="h-8 w-auto object-contain hidden"
-                         onload="this.classList.remove('hidden'); const fallback = this.nextElementSibling; if(fallback) fallback.classList.add('hidden');"
+                         onload="this.classList.remove('hidden'); if (this.nextElementSibling) this.nextElementSibling.classList.add('hidden');"
                          onerror="this.classList.add('hidden');" />
                     <div class="w-8 h-8 bg-teal-muted rounded-lg flex items-center justify-center">
                         <span class="material-symbols-outlined text-on-primary text-[20px]">dentistry</span>
@@ -818,7 +801,7 @@
                     <h4 class="font-label-bold text-on-surface mb-4 uppercase tracking-widest text-caption">Contacto</h4>
                     <div class="flex items-start gap-3 text-on-surface-variant mb-3">
                         <span class="material-symbols-outlined text-gold-leaf">location_on</span>
-                        <span class="text-body-md">Calle Real #123, Zona Centro, Orizaba, Veracruz.</span>
+                        <span class="text-body-md">Sur 17 105, Centro, 94300 Orizaba, Ver.</span>
                     </div>
                     <div class="flex items-center gap-3 text-on-surface-variant mb-2">
                         <span class="material-symbols-outlined text-gold-leaf">chat</span>
