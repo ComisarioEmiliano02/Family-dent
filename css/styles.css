@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Family Dent - Hoja de Estilos Personalizada
+   Mantiene y respeta la paleta institucional y diseño visual.
+   ========================================================================== */
+
+:root {
+    --color-primary: #001918;
+    --color-teal-dark: #0F2E2D;
+    --color-teal-muted: #1F4E4D;
+    --color-gold-leaf: #C79A3D;
+    --color-gold-light: #E0BD70;
+    --color-dental-highlight: #F9A825;
+    --color-cream-bg: #FBF8F2;
+    --color-surface: #fcf9f3;
+    --color-surface-container: #f0eee8;
+    --color-surface-container-high: #ebe8e2;
+    --color-ink-rich: #1C2624;
+    --color-ink-muted: #4B5C59;
+}
+
+/* Desplazamiento suave para navegación interna */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ocultar barra de desplazamiento estándar pero permitir scroll */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-cream-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-teal-muted);
+    border-radius: 9999px;
+}
+
+/* Estilos para el contenedor de Google Maps */
+.map-container {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(15, 46, 45, 0.08);
+    border: 2px solid rgba(199, 154, 61, 0.2);
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Botón flotante de WhatsApp */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #25D366;
+    color: #ffffff;
+    padding: 12px 18px;
+    border-radius: 9999px;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    text-decoration: none;
+    font-family: 'Figtree', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-whatsapp:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55);
+    color: #ffffff;
+}
+
+.floating-whatsapp-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tarjetas de servicios interactivas */
+.service-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Animación sutil de pulso para llamadas a la acción */
+@keyframes softPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(249, 168, 37, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 12px rgba(249, 168, 37, 0);
+    }
+}
+
+.pulse-btn {
+    animation: softPulse 2.8s infinite;
+}
