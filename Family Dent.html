@@ -7,6 +7,10 @@
     <title>Family Dent - Cuidado Bucal Profesional y Accesible en Orizaba</title>
     <meta name="description" content="Atención odontológica al alcance de toda tu familia en Orizaba, Veracruz. Limpiezas, resinas, extracciones, cirugías, profilaxis, prótesis y blanqueamiento." />
 
+    <!-- Favicon Oficial -->
+    <link rel="icon" type="image/png" href="assets/images/logo.png" />
+    <link rel="apple-touch-icon" href="assets/images/logo.png" />
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@100..900&family=Fraunces:wght@100..900&display=swap" rel="stylesheet" />
@@ -124,15 +128,14 @@
     <!-- Header / Barra de Navegación -->
     <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(15,46,45,0.04)]">
         <div class="h-20 max-w-[1200px] mx-auto px-margin-mobile lg:px-gutter flex items-center justify-between">
-            <!-- Logo / Marca -->
+            <!-- Logo / Marca Oficial -->
             <a href="#" class="flex items-center gap-3 group">
-                <!-- Imagen del Logo (Coloca tu archivo en assets/images/logo.png) -->
-                <img src="assets/images/logo.png" alt="Family Dent" class="h-10 w-auto object-contain hidden"
-                     onload="this.classList.remove('hidden'); if (this.nextElementSibling) this.nextElementSibling.classList.add('hidden');"
-                     onerror="this.classList.add('hidden');" />
+                <img src="assets/images/logo.png" alt="Family Dent" 
+                     class="h-12 w-12 object-contain rounded-full shadow-sm transition-transform group-hover:scale-105"
+                     onerror="this.style.display='none'; if (this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');" />
                 
-                <!-- Icono de respaldo si no hay imagen de logo aún -->
-                <div class="w-10 h-10 bg-teal-muted rounded-xl flex items-center justify-center transition-transform group-hover:scale-105">
+                <!-- Icono de respaldo si no carga la imagen -->
+                <div class="w-11 h-11 bg-teal-muted rounded-full hidden items-center justify-center transition-transform group-hover:scale-105">
                     <span class="material-symbols-outlined text-on-primary text-[24px]">dentistry</span>
                 </div>
                 <span class="font-headline-md text-headline-md text-teal-dark tracking-tight">Family Dent</span>
@@ -784,10 +787,10 @@
             <!-- Columna 1: Marca y Filosofía -->
             <div class="space-y-4">
                 <div class="flex items-center gap-3 mb-4">
-                    <img src="assets/images/logo.png" alt="Family Dent" class="h-8 w-auto object-contain hidden"
-                         onload="this.classList.remove('hidden'); if (this.nextElementSibling) this.nextElementSibling.classList.add('hidden');"
-                         onerror="this.classList.add('hidden');" />
-                    <div class="w-8 h-8 bg-teal-muted rounded-lg flex items-center justify-center">
+                    <img src="assets/images/logo.png" alt="Family Dent" 
+                         class="h-12 w-12 object-contain rounded-full shadow-sm"
+                         onerror="this.style.display='none'; if (this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');" />
+                    <div class="w-10 h-10 bg-teal-muted rounded-full hidden items-center justify-center">
                         <span class="material-symbols-outlined text-on-primary text-[20px]">dentistry</span>
                     </div>
                     <span class="font-headline-md text-headline-md text-teal-dark">Family Dent</span>
